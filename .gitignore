@@ -1,0 +1,12 @@
+node_modules
+.next
+next-env.d.ts
+.env*.local
+*.tsbuildinfo
+
+# Environment files and deployment archives
+.env
+.env.*
+!.env.example
+*.zip
+

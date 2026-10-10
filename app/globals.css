@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #071a33;
+  --ivory: #f3ebdd;
+  --gold: #c99a2e;
+  --white: #ffffff;
+  --warm: #faf7f0;
+  --line: #e8e0d0;
+  --ink-2: #40516a;
+  --muted: #718096;
+  --header-h: 88px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-navy antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display font-normal text-navy;
+  }
+  ::selection {
+    background: var(--gold);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+  button, [role="button"], a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  /* Containers — measured from the reference screenshots */
+  .container-wide {
+    @apply mx-auto w-full max-w-wide px-6 sm:px-8;
+  }
+  .container-home {
+    @apply mx-auto w-full max-w-home px-6 sm:px-8;
+  }
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[10.5px] font-semibold uppercase leading-none tracking-eyebrow text-gold sm:text-[11px];
+  }
+  .label {
+    @apply block text-[11px] font-bold uppercase leading-none tracking-label text-navy;
+  }
+
+  /* Section rhythm */
+  .section-y-inner {
+    @apply py-14 sm:py-16 lg:py-20;
+  }
+  .section-y {
+    @apply py-16 sm:py-20 lg:py-[100px];
+  }
+
+  .prose-hga p {
+    @apply mb-6 text-[16px] leading-[1.85] text-ink-2 sm:text-[17px];
+  }
+  .prose-hga p:last-child {
+    @apply mb-0;
+  }
+}
+
+@layer utilities {
+  .fade-up {
+    animation: fadeUp 300ms ease-out both;
+  }
+  .fade-up-2 {
+    animation: fadeUp 300ms ease-out 80ms both;
+  }
+  .fade-up-3 {
+    animation: fadeUp 300ms ease-out 160ms both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
